@@ -6,8 +6,4 @@ spring:
     mongodb:
       repositories:
         enabled: true
-      database: webflux
-      host: localhost
-      post: 27017
-#      uri: mongodb://localhost:27017/webflux
-#      uri: mongodb+srv://biot_admin:biot_admin@cluster0.jcts2.mongodb.net/webflux?retryWrites=true&w=majority
+      uri: mongodb://localhost:27017/webflux

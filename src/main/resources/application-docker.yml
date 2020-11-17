@@ -4,4 +4,6 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_COLLECTION}
+      repositories:
+        enabled: true
+      uri: mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_DATABASE}

@@ -1,31 +1,29 @@
 version: '3'
 services:
-  weblfux-venda-db:
-    image: mongo
-    container_name: weblfux-venda-db
+  filmes-db:
+    image: tutum/mongodb
+    container_name: filmes-db
     restart: always
     networks:
-      - webflux
+      - filmes
     environment:
-      MONGODB_PASS: "no"
+      - AUTH=no
     ports:
       - '27017:27017'
       - '28017:28017'
-
-  weblfux-venda-api:
+  filmes-api:
     build: './'
-    container_name: weblfux-venda-api
+    container_name: filmes-api
     ports:
       - 8080:8080
     networks:
-      - webflux
+      - filmes
     depends_on:
-      - weblfux-venda-db
+      - filmes-db
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - MONGO_DB_HOST=mongo
+      - MONGO_DB_HOST=filmes-db
       - MONGO_DB_PORT=27017
-      - MONGO_DB_COLLECTION=webflux_venda_api_collection
-
+      - MONGO_DB_DATABASE=webflux
 networks:
-  webflux:
+  filmes:
