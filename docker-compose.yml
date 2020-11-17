@@ -1,0 +1,31 @@
+version: '3'
+services:
+  weblfux-venda-db:
+    image: mongo
+    container_name: weblfux-venda-db
+    restart: always
+    networks:
+      - webflux
+    environment:
+      MONGODB_PASS: "no"
+    ports:
+      - '27017:27017'
+      - '28017:28017'
+
+  weblfux-venda-api:
+    build: './'
+    container_name: weblfux-venda-api
+    ports:
+      - 8080:8080
+    networks:
+      - webflux
+    depends_on:
+      - weblfux-venda-db
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - MONGO_DB_HOST=mongo
+      - MONGO_DB_PORT=27017
+      - MONGO_DB_COLLECTION=webflux_venda_api_collection
+
+networks:
+  webflux:
