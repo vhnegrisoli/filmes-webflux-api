@@ -22,8 +22,8 @@ public class InitialDataConfig {
     private FilmeRepository filmeRepository;
 
     @PostConstruct
-    public void initData() {
-        filmeRepository.deleteAll();
+    public void inserirDadosIniciais() {
+        filmeRepository.deleteAll().subscribe();
         log.info("Iniciando o processamento do arquivo filmes.json...");
         try {
             var filmes = lerFilmesDoArquivoJson();
@@ -42,6 +42,7 @@ public class InitialDataConfig {
         var filmes = ((JSONArray) obj)
             .stream()
             .map(Filme::converterDe)
+            .distinct()
             .collect(Collectors.toList());
         return (List<Filme>) filmes;
     }
