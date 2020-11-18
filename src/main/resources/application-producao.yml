@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      repositories:
+        enabled: true
+      uri: ${MONGO_DB_URI}
