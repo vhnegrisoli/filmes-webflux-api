@@ -7,3 +7,9 @@ spring:
       repositories:
         enabled: true
       uri: mongodb://localhost:27017/webflux
+
+app-config:
+  nome: Filmes API
+  descricao: API REST do projeto Filmes API utilizando Spring Boot, Spring WebFlux, MongoDB e Docker
+  versao: 1.0.0
+  url: localhost:${server.port}
