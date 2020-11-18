@@ -88,11 +88,13 @@ O banco de dados MongoDB estará disponbilizado no endereço `http://localhost:2
 
 Toda a documentação será feita através do Swagger, e poderá ser encontrada no endereço:
 
-`http://localhost:8080/swagger-ui/`
+[http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
+
+![Documentação Swagger](imagens/Documentação Swagger.png)
 
 ## Autores
 
-* **Victor Hugo Negrisoli** - *Desenvolvedor Back-End Pleno* - [vhnegrisoli](https://github.com/vhnegrisoli)
+* **Victor Hugo Negrisoli** - *Desenvolvedor Back-End* - [vhnegrisoli](https://github.com/vhnegrisoli)
 
 ## Licença
 
