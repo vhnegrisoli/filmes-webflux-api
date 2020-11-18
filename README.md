@@ -84,13 +84,28 @@ A aplicação será dispinibilizada no endereço `http://localhost:8080`.
 
 O banco de dados MongoDB estará disponbilizado no endereço `http://localhost:27017`.
 
+### Deployment no Heroku
+
+Foi feito um deploy em produção para a aplicação no Heroku e o banco de dados de produção utilizado com MongoDB foi
+através do MongoDB Atlas. 
+
+A aplicação está disponível no Heroku em: [https://filmes-webflux-api.herokuapp.com/](https://filmes-webflux-api.herokuapp.com/)
+
 #### Documentação
 
 Toda a documentação será feita através do Swagger, e poderá ser encontrada no endereço:
 
-[http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
+[http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/) (endereço local)
+
+ou
+
+[https://filmes-webflux-api.herokuapp.com/swagger-ui/](https://filmes-webflux-api.herokuapp.com/swagger-ui/)
+
+Visão inicial da documentação da API:
 
 ![Documentação Swagger](https://github.com/vhnegrisoli/filmes-webflux-api/blob/main/imagens/Documenta%C3%A7%C3%A3o%20Swagger.png)
+
+Como a API é livre de autenticação, pode ser testada diretamente pela documentação executando local ou via Heroku.
 
 ## Autores
 
