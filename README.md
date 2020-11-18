@@ -90,7 +90,7 @@ Toda a documentação será feita através do Swagger, e poderá ser encontrada 
 
 [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
 
-![Documentação Swagger](imagens/Documentação Swagger.png)
+![Documentação Swagger](https://github.com/vhnegrisoli/filmes-webflux-api/blob/main/imagens/Documenta%C3%A7%C3%A3o%20Swagger.png)
 
 ## Autores
 
