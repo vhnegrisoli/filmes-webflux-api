@@ -2,7 +2,6 @@ package com.filmesapi.modulos.filme.controller;
 
 import com.filmesapi.modulos.filme.model.Filme;
 import com.filmesapi.modulos.filme.service.FilmeService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -10,7 +9,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/filmes")
 public class FilmeController {

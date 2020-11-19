@@ -1,7 +1,11 @@
 package com.filmesapi.config;
 
+import com.filmesapi.modulos.ator.model.Ator;
 import com.filmesapi.modulos.filme.model.Filme;
+import com.filmesapi.modulos.genero.model.Genero;
+import com.filmesapi.modulos.ator.repository.AtorRepository;
 import com.filmesapi.modulos.filme.repository.FilmeRepository;
+import com.filmesapi.modulos.genero.repository.GeneroRepository;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -20,6 +24,10 @@ public class InitialDataConfig {
 
     @Autowired
     private FilmeRepository filmeRepository;
+    @Autowired
+    private AtorRepository atorRepository;
+    @Autowired
+    private GeneroRepository generoRepository;
 
     @PostConstruct
     public void inserirDadosIniciais() {
@@ -28,11 +36,35 @@ public class InitialDataConfig {
         try {
             var filmes = lerFilmesDoArquivoJson();
             log.info("Inserindo ".concat(String.valueOf(filmes.size())).concat(" arquivos no MongoDB."));
+            inserirAtores(filmes);
+            inserirGeneros(filmes);
             filmeRepository.saveAll(filmes).subscribe();
             log.info("Finalizando.");
         } catch (Exception ex) {
             log.error("Erro ao inserir dados iniciais.", ex);
         }
+    }
+
+    private void inserirAtores(List<Filme> filmes) {
+        var atores = filmes
+            .stream()
+            .flatMap(filme -> filme.getCast().stream())
+            .filter(ator -> !ator.equals("."))
+            .distinct()
+            .map(Ator::new)
+            .collect(Collectors.toList());
+        atorRepository.saveAll(atores).subscribe();
+    }
+
+    private void inserirGeneros(List<Filme> filmes) {
+        var generos = filmes
+            .stream()
+            .flatMap(filme -> filme.getGenres().stream())
+            .filter(genero -> !genero.equals("."))
+            .distinct()
+            .map(Genero::new)
+            .collect(Collectors.toList());
+        generoRepository.saveAll(generos).subscribe();
     }
 
     @SneakyThrows
